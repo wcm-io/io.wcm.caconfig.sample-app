@@ -1,10 +1,12 @@
-wcm.io Context-Aware Configuration AEM Sample
+<img src="https://wcm.io/images/favicon-16@2x.png"/> wcm.io Context-Aware Configuration AEM Sample
 =============================================
+[![Build](https://github.com/wcm-io/io.wcm.caconfig.editor/workflows/Build/badge.svg?branch=develop)](https://github.com/wcm-io/io.wcm.caconfig.editor/actions?query=workflow%3ABuild+branch%3Adevelop)
+
 
 Deploy sample project
 ---------------------
 
-You can use this scripts for a full deployment (application, sample content, configuration) into local AEM 6.3 or higher instances.
+You can use this scripts for a full deployment (application, sample content, configuration) into local AEM 6.5 or AEMaaCS instances.
 
 Using the **AEM Page Persistence Strategy** from wcm.io Context-Aware Configuration Extensions:
 

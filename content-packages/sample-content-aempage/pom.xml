@@ -53,15 +53,18 @@
           <name>${contentPackage.name}</name>
           <group>${contentPackage.group}</group>
           <packageType>content</packageType>
-          <accessControlHandling>merge</accessControlHandling>
-          <filters>
-            <filter>
-              <root>/content/contextaware-config-sample</root>
-            </filter>
-            <filter>
-              <root>/conf/contextaware-config-sample</root>
-            </filter>
-          </filters>
+
+          <validatorsSettings>
+            <jackrabbit-filter>
+              <options>
+                <validRoots>
+                  /conf,
+                  /content
+                </validRoots>
+                <severityForUncoveredAncestorNodes>debug</severityForUncoveredAncestorNodes>
+              </options>
+            </jackrabbit-filter>
+          </validatorsSettings>
         </configuration>
       </plugin>
 
