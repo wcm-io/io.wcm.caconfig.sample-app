@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
         jcr:primaryType="cq:PageContent"
+        sling:configPropertyInherit="{Boolean}false"
         boolParam="{Boolean}true"
+        contextPath="/content/contextaware-config-sample/en/sample-page"
+        damPath="/content/dam/contextaware-config-sample/pascal-debrunner-FecM8rFmF1U-unsplash.jpg"
+        intDropdownParam="{Long}2"
         intParam="{Long}12345"
-        stringParam="This is an example string value"/>
+        stringArrayParam="[value1,value2]"
+        stringDropdownDynamicParam="dynoption1"
+        stringDropdownParam="option1"
+        stringMultivalueDropdownParam="[option2,option3]"
+        stringParam="This is an example string value"
+        stringTextArea="The is a&#xA;multiline example text."/>
 </jcr:root>
