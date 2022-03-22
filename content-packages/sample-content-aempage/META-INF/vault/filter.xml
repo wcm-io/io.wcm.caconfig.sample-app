@@ -2,6 +2,7 @@
 <workspaceFilter version="1.0">
     <filter root="/content/contextaware-config-sample"/>
     <filter root="/content/dam/contextaware-config-sample"/>
+    <filter root="/content/cq:tags/contextaware-config-sample"/>
     <filter root="/conf/contextaware-config-sample">
         <include pattern="/conf/contextaware-config-sample/.*"/>
         <exclude pattern="/conf/contextaware-config-sample/rep:policy(/.*)?"/>

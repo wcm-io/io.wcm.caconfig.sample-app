@@ -23,9 +23,11 @@ import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_DROPDOWN_OPTIONS;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_DROPDOWN_OPTIONS_PROVIDER;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_PATHBROWSER_ROOT_PATH;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_PATHBROWSER_ROOT_PATH_CONTEXT;
+import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_TAGBROWSER_ROOT_PATH;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_WIDGET_TYPE;
 import static io.wcm.caconfig.editor.EditorProperties.WIDGET_TYPE_DROPDOWN;
 import static io.wcm.caconfig.editor.EditorProperties.WIDGET_TYPE_PATHBROWSER;
+import static io.wcm.caconfig.editor.EditorProperties.WIDGET_TYPE_TAGBROWSER;
 import static io.wcm.caconfig.editor.EditorProperties.WIDGET_TYPE_TEXTAREA;
 
 import org.apache.sling.caconfig.annotation.Configuration;
@@ -42,25 +44,25 @@ public @interface ConfigSample {
   /**
    * @return String parameter
    */
-  @Property(label = "String Param", description = "This is a string parameter in the singleton configuration.", order = 1)
+  @Property(label = "String Param", description = "This is a string parameter in the singleton configuration.", order = 10)
   String stringParam();
 
   /**
    * @return Integer parameter
    */
-  @Property(label = "Integer Param", order = 2)
+  @Property(label = "Integer Param", order = 11)
   int intParam();
 
   /**
    * @return Boolean parameter
    */
-  @Property(label = "Boolean Param", order = 3)
+  @Property(label = "Boolean Param", order = 12)
   boolean boolParam();
 
   /**
    * @return Path parameter
    */
-  @Property(label = "DAM Path", description = "Browse DAM assets.", order = 4, property = {
+  @Property(label = "DAM Path", description = "Browse DAM assets.", order = 20, property = {
       PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_PATHBROWSER,
       PROPERTY_PATHBROWSER_ROOT_PATH + "=/content/dam"
   })
@@ -69,7 +71,7 @@ public @interface ConfigSample {
   /**
    * @return Path parameter
    */
-  @Property(label = "Context Path", description = "Browse pages in the current configuration context path.", order = 5,
+  @Property(label = "Context Path", description = "Browse pages in the current configuration context path.", order = 30,
       property = {
           PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_PATHBROWSER,
           PROPERTY_PATHBROWSER_ROOT_PATH_CONTEXT + "=true"
@@ -77,9 +79,19 @@ public @interface ConfigSample {
   String contextPath();
 
   /**
+   * @return Tags
+   */
+  @Property(label = "Tags", description = "Picks tags.", order = 40,
+      property = {
+          PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_TAGBROWSER,
+          PROPERTY_TAGBROWSER_ROOT_PATH + "=/content/cq:tags/contextaware-config-sample"
+      })
+  String[] tags();
+
+  /**
    * @return String array parameter with default value
    */
-  @Property(label = "String Array Param", order = 6)
+  @Property(label = "String Array Param", order = 50)
   String[] stringArrayParam() default {
       "value1", "value2"
   };
@@ -87,7 +99,7 @@ public @interface ConfigSample {
   /**
    * @return String dropdown parameter
    */
-  @Property(label = "String Dropdown Param", description = "This is a string parameter with dropdown list.", order = 7,
+  @Property(label = "String Dropdown Param", description = "This is a string parameter with dropdown list.", order = 60,
       property = {
           PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_DROPDOWN,
           PROPERTY_DROPDOWN_OPTIONS + "=["
@@ -101,7 +113,7 @@ public @interface ConfigSample {
   /**
    * @return Integer dropdown parameter
    */
-  @Property(label = "Integer Dropdown Param", order = 8,
+  @Property(label = "Integer Dropdown Param", order = 70,
       property = {
           PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_DROPDOWN,
           PROPERTY_DROPDOWN_OPTIONS + "=["
@@ -114,7 +126,7 @@ public @interface ConfigSample {
   /**
    * @return String multivalue dropdown parameter
    */
-  @Property(label = "String Multivalue Dropdown Param", description = "This is a multi-valued string parameter with dropdown list.", order = 9,
+  @Property(label = "String Multivalue Dropdown Param", description = "This is a multi-valued string parameter with dropdown list.", order = 80,
       property = {
           PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_DROPDOWN,
           PROPERTY_DROPDOWN_OPTIONS + "=["
@@ -130,7 +142,7 @@ public @interface ConfigSample {
   /**
    * @return String dynamic dropdown parameter
    */
-  @Property(label = "String Dynamic Dropdown Param", description = "This is a string parameter with dynamic dropdown list.", order = 10,
+  @Property(label = "String Dynamic Dropdown Param", description = "This is a string parameter with dynamic dropdown list.", order = 90,
       property = {
           PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_DROPDOWN,
           PROPERTY_DROPDOWN_OPTIONS_PROVIDER + "=" + SampleDropdownOptionProvider.SAMPLE_DROPDWON_OPTIONS_PROVIDER
@@ -140,7 +152,7 @@ public @interface ConfigSample {
   /**
    * @return Path parameter
    */
-  @Property(label = "String Text Area", description = "Enter multiple lines of text.", order = 11,
+  @Property(label = "String Text Area", description = "Enter multiple lines of text.", order = 100,
       property = {
           PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_TEXTAREA
       })

@@ -14,5 +14,6 @@
         stringDropdownParam="option1"
         stringMultivalueDropdownParam="[option2,option3]"
         stringParam="This is an example string value"
-        stringTextArea="The is a&#xA;multiline example text."/>
+        stringTextArea="The is a&#xA;multiline example text."
+        tags="[contextaware-config-sample:example-tag-2,contextaware-config-sample:example-tag-5]"/>
 </jcr:root>
