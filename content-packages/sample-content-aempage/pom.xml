@@ -59,7 +59,9 @@
               <options>
                 <validRoots>
                   /conf,
-                  /content
+                  /content,
+                  /content/dam,
+                  /content/cq:tags
                 </validRoots>
                 <severityForUncoveredAncestorNodes>debug</severityForUncoveredAncestorNodes>
               </options>
