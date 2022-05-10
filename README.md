@@ -34,3 +34,10 @@ Inspect Configuration
 ---------------------
 
 You can look how the configuration is stored in the repository by browsing through `/conf/contextaware-config-sample`.
+
+
+System requirements
+-------------------
+
+* AEM 6.5.7+ or AEMaaCS SDK
+* JDK 1.8 or Java 11
