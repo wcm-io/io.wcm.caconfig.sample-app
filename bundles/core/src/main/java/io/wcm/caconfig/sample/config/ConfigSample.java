@@ -54,7 +54,7 @@ public @interface ConfigSample {
    */
   @Property(label = "E-Mail Param", description = "String parameter with E-Mail validation.", order = 11, property = {
       PROPERTY_VALIDATION_GRANITE_FOUNDATION + "=wcmio.email",
-      PROPERTY_VALIDATION_GRANITE_FOUNDATION_MESSAGE + "=Please enter a valid E-Mail address."
+      PROPERTY_VALIDATION_GRANITE_FOUNDATION_MESSAGE + "=Please enter a valid email address."
   })
   String emailParam();
 

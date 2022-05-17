@@ -99,7 +99,7 @@
       <dependency>
         <groupId>io.wcm</groupId>
         <artifactId>io.wcm.wcm.ui.granite</artifactId>
-        <version>1.9.2</version>
+        <version>1.9.3-SNAPSHOT</version>
       </dependency>
 
       <!-- Sling Context-Aware Config -->
