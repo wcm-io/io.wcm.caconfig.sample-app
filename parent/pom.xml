@@ -96,6 +96,11 @@
         <artifactId>io.wcm.caconfig.extensions</artifactId>
         <version>1.9.1-SNAPSHOT</version>
       </dependency>
+      <dependency>
+        <groupId>io.wcm</groupId>
+        <artifactId>io.wcm.wcm.ui.granite</artifactId>
+        <version>1.9.2</version>
+      </dependency>
 
       <!-- Sling Context-Aware Config -->
       <dependency>
