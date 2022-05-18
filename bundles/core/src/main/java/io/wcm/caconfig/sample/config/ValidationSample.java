@@ -34,7 +34,7 @@ public @interface ValidationSample {
   /**
    * @return E-Mail synchronous validation
    */
-  @Property(label = "E-Mail (Sync)", description = "E-Mail synchronous validation.", order = 10, property = {
+  @Property(label = "E-Mail (sync)", description = "E-Mail synchronous validation.", order = 10, property = {
       PROPERTY_VALIDATION + "=email-sync-sample",
       PROPERTY_VALIDATION_MESSAGE + "=Please enter a valid email address."
   })
@@ -43,7 +43,7 @@ public @interface ValidationSample {
   /**
    * @return E-Mail asynchronous validation
    */
-  @Property(label = "E-Mail (Async)", description = "E-Mail asynchronous validation.", order = 11, property = {
+  @Property(label = "E-Mail (async)", description = "E-Mail asynchronous validation.", order = 11, property = {
       PROPERTY_VALIDATION + "=email-async-sample",
       PROPERTY_VALIDATION_MESSAGE + "=Please enter a valid email address."
   })
@@ -52,7 +52,7 @@ public @interface ValidationSample {
   /**
    * @return E-Mail synchronous validation with GraniteUI foundation validator.
    */
-  @Property(label = "E-Mail (Sync, Granite)", description = "E-Mail synchronous validation using GraniteUI foundation validator.", order = 12, property = {
+  @Property(label = "E-Mail (sync, Granite)", description = "E-Mail synchronous validation using GraniteUI foundation validator.", order = 12, property = {
       PROPERTY_VALIDATION + "=wcmio.email",
       PROPERTY_VALIDATION_MESSAGE + "=Please enter a valid email address."
   })
@@ -61,7 +61,7 @@ public @interface ValidationSample {
   /**
    * @return E-Mail synchronous validation
    */
-  @Property(label = "Page Property Name",
+  @Property(label = "Page Property Name (async)",
       description = "String parameter that is valid when it matched with a page properties name from the context root page (e.g. 'pageTitle').",
       order = 20, property = {
           PROPERTY_VALIDATION + "=pageprops-async-sample",
@@ -72,10 +72,28 @@ public @interface ValidationSample {
   /**
    * @return Number 0..10
    */
-  @Property(label = "Number 0..10", description = "Number with validation between 0 and 10.", order = 30, property = {
+  @Property(label = "Number 0..10 (sync)", description = "Number with validation between 0 and 10.", order = 30, property = {
       PROPERTY_VALIDATION + "=number-0-10-sample",
       PROPERTY_VALIDATION_MESSAGE + "=Please enter a number between 0 and 10."
   })
   int numberParam();
+
+  /**
+   * @return E-Mail synchronous validation (array)
+   */
+  @Property(label = "E-Mail Array (sync)", description = "E-Mail synchronous validation.", order = 40, property = {
+      PROPERTY_VALIDATION + "=email-sync-sample",
+      PROPERTY_VALIDATION_MESSAGE + "=Please enter a valid email address."
+  })
+  String[] emailArray();
+
+  /**
+   * @return Number 0..10 Array
+   */
+  @Property(label = "Number 0..10 Array (sync)", description = "Number with validation between 0 and 10.", order = 41, property = {
+      PROPERTY_VALIDATION + "=number-0-10-sample",
+      PROPERTY_VALIDATION_MESSAGE + "=Please enter a number between 0 and 10."
+  })
+  int[] numberArray();
 
 }
