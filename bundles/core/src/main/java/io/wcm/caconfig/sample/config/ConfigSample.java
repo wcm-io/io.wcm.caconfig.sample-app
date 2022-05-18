@@ -97,6 +97,22 @@ public @interface ConfigSample {
   };
 
   /**
+   * @return Integer array parameter with default value
+   */
+  @Property(label = "Integer Array Param", order = 51)
+  int[] intArrayParam() default {
+      1, 2
+  };
+
+  /**
+   * @return Boolean array parameter with default value
+   */
+  @Property(label = "Boolean Array Param", order = 52)
+  boolean[] boolArrayParam() default {
+      true, false
+  };
+
+  /**
    * @return String dropdown parameter
    */
   @Property(label = "String Dropdown Param", description = "This is a string parameter with dropdown list.", order = 60,
