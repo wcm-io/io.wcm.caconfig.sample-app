@@ -18,9 +18,9 @@
  * #L%
  */
 /*
- * Example for custom asynchronous validation in Context-Aware Configuration Editor.
+ * Examples for custom validation methods in Context-Aware Configuration Editor.
  */
-;(function(document, Granite, $) {
+;(function($) {
   "use strict";
 
   var registry = $(window).adaptTo("foundation-registry");
@@ -38,7 +38,7 @@
     }
   });
 
-  // sample validator that validates email asynchronously
+  // sample validator that validates email asynchronously (just for demo purposes)
   // validator returns a promise with resolved = valid, rejected = invalid
   registry.register('io.wcm.caconfig.editor.validator', {
     name: 'email-async-sample',
@@ -96,4 +96,4 @@
     }
   });
 
-})(document, Granite, Granite.$);
+})(Granite.$);
