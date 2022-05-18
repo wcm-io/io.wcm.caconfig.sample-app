@@ -85,4 +85,15 @@
     }
   });
 
+  // sample validator that ensure a number is between 0 and 10
+  registry.register('io.wcm.caconfig.editor.validator', {
+    name: 'number-0-10-sample',
+    validate: function(value) {
+      if (isNaN(value)) {
+        return false;
+      }
+      return value >= 0 && value <= 10;
+    }
+  });
+
 })(document, Granite, Granite.$);

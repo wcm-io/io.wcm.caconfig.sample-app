@@ -63,10 +63,19 @@ public @interface ValidationSample {
    */
   @Property(label = "Page Property Name",
       description = "String parameter that is valid when it matched with a page properties name from the context root page (e.g. 'pageTitle').",
-      order = 12, property = {
+      order = 20, property = {
           PROPERTY_VALIDATION + "=pageprops-async-sample",
           PROPERTY_VALIDATION_MESSAGE + "=This is not a valid page properties name from the context root page."
       })
   String pagePropertyName();
+
+  /**
+   * @return Number 0..10
+   */
+  @Property(label = "Number 0..10", description = "Number with validation between 0 and 10.", order = 30, property = {
+      PROPERTY_VALIDATION + "=number-0-10-sample",
+      PROPERTY_VALIDATION_MESSAGE + "=Please enter a number between 0 and 10."
+  })
+  int numberParam();
 
 }
