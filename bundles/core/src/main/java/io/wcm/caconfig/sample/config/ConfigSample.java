@@ -24,8 +24,8 @@ import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_DROPDOWN_OPTIONS_
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_PATHBROWSER_ROOT_PATH;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_PATHBROWSER_ROOT_PATH_CONTEXT;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_TAGBROWSER_ROOT_PATH;
-import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_VALIDATION_GRANITE_FOUNDATION;
-import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_VALIDATION_GRANITE_FOUNDATION_MESSAGE;
+import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_VALIDATION;
+import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_VALIDATION_MESSAGE;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_WIDGET_TYPE;
 import static io.wcm.caconfig.editor.EditorProperties.WIDGET_TYPE_DROPDOWN;
 import static io.wcm.caconfig.editor.EditorProperties.WIDGET_TYPE_PATHBROWSER;
@@ -53,8 +53,8 @@ public @interface ConfigSample {
    * @return E-Mail parameter (String with Granite UI Foundation Validation)
    */
   @Property(label = "E-Mail Param", description = "String parameter with E-Mail validation.", order = 11, property = {
-      PROPERTY_VALIDATION_GRANITE_FOUNDATION + "=wcmio.email",
-      PROPERTY_VALIDATION_GRANITE_FOUNDATION_MESSAGE + "=Please enter a valid email address."
+      PROPERTY_VALIDATION + "=email-sync-sample",
+      PROPERTY_VALIDATION_MESSAGE + "=Please enter a valid email address."
   })
   String emailParam();
 
