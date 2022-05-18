@@ -54,15 +54,28 @@
           }
           var valid =  pattern.email.test(value)
           resolve(valid);
-        }, 300);
+        }, 500);
       });
     }
   });
 
   // sample validator that executes a HTTP request to check if certain page property names exist in the root context page
   registry.register('io.wcm.caconfig.editor.validator', {
-    name: 'http-request-pageprops-sample',
+    name: 'pageprops-async-sample',
+    async: true,
     validate: function(value, options) {
+      return new Promise((resolve, reject) => {
+        var pagePropsUrl = options.contextPath + "/_jcr_content.json";
+        $.ajax(pagePropsUrl)
+          .done(function(data) {
+            // check if there is a page property with the given value as name
+            var valid = (data[value]) != undefined;
+            resolve(valid);
+          })
+          .fail(function() {
+            reject();
+          })
+        });
     }
   });
 

@@ -24,8 +24,6 @@ import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_DROPDOWN_OPTIONS_
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_PATHBROWSER_ROOT_PATH;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_PATHBROWSER_ROOT_PATH_CONTEXT;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_TAGBROWSER_ROOT_PATH;
-import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_VALIDATION;
-import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_VALIDATION_MESSAGE;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_WIDGET_TYPE;
 import static io.wcm.caconfig.editor.EditorProperties.WIDGET_TYPE_DROPDOWN;
 import static io.wcm.caconfig.editor.EditorProperties.WIDGET_TYPE_PATHBROWSER;
@@ -50,24 +48,15 @@ public @interface ConfigSample {
   String stringParam();
 
   /**
-   * @return E-Mail parameter (String with Granite UI Foundation Validation)
-   */
-  @Property(label = "E-Mail Param", description = "String parameter with E-Mail validation.", order = 11, property = {
-      PROPERTY_VALIDATION + "=email-sync-sample",
-      PROPERTY_VALIDATION_MESSAGE + "=Please enter a valid email address."
-  })
-  String emailParam();
-
-  /**
    * @return Integer parameter
    */
-  @Property(label = "Integer Param", order = 12)
+  @Property(label = "Integer Param", order = 11)
   int intParam();
 
   /**
    * @return Boolean parameter
    */
-  @Property(label = "Boolean Param", order = 13)
+  @Property(label = "Boolean Param", order = 12)
   boolean boolParam();
 
   /**
