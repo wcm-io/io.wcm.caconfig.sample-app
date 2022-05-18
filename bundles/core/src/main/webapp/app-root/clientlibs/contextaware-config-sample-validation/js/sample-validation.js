@@ -27,8 +27,7 @@
 
   // Predefined patterns
   var pattern = {
-    email: /^[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}$/,
-    onlyX: /^x+$/
+    email: /^[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}$/
   };
 
   // sample validator that validates email synchronously
@@ -40,6 +39,7 @@
   });
 
   // sample validator that validates email asynchronously
+  // validator returns a promise with resolved = valid, rejected = invalid
   registry.register('io.wcm.caconfig.editor.validator', {
     name: 'email-async-sample',
     async: true,
@@ -47,19 +47,20 @@
       return new Promise((resolve, reject) => {
         // simulate a bit processing time with timeout
         setTimeout(() => {
-          if (pattern.onlyX.test(value)) {
-            // simulate reject when value only consits of "x" characters
-            reject();
-            return;
-          }
           var valid =  pattern.email.test(value)
-          resolve(valid);
+          if (valid) {
+            resolve();
+          }
+          else {
+            reject();
+          }
         }, 500);
       });
     }
   });
 
   // sample validator that executes a HTTP request to check if certain page property names exist in the root context page
+  // validator returns a promise with resolved = valid, rejected = invalid
   registry.register('io.wcm.caconfig.editor.validator', {
     name: 'pageprops-async-sample',
     async: true,
@@ -70,7 +71,12 @@
           .done(function(data) {
             // check if there is a page property with the given value as name
             var valid = (data[value]) != undefined;
-            resolve(valid);
+            if (valid) {
+              resolve();
+            }
+            else {
+              reject();
+            }
           })
           .fail(function() {
             reject();
