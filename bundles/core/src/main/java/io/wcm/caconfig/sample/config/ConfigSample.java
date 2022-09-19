@@ -89,6 +89,16 @@ public @interface ConfigSample {
   String[] tags();
 
   /**
+   * @return Single Tag
+   */
+  @Property(label = "Single Tag", description = "Picks a tag.", order = 41,
+      property = {
+          PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_TAGBROWSER,
+          PROPERTY_TAGBROWSER_ROOT_PATH + "=/content/cq:tags/contextaware-config-sample"
+      })
+  String singleTag();
+
+  /**
    * @return String array parameter with default value
    */
   @Property(label = "String Array Param", order = 50)
