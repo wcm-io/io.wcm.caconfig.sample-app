@@ -35,7 +35,7 @@ public @interface ValidationSample {
   /**
    * @return String parameter
    */
-  @Property(label = "String Param", description = "This is a mandatory string parameter in the singleton configuration.", order = 10,
+  @Property(label = "String Param", description = "This is a mandatory string parameter in the singleton configuration.", order = 5,
       property = {
           PROPERTY_MANDATORY + "=true"
       })
@@ -46,7 +46,8 @@ public @interface ValidationSample {
    */
   @Property(label = "E-Mail (sync)", description = "E-Mail synchronous validation.", order = 10, property = {
       PROPERTY_VALIDATION + "=email-sync-sample",
-      PROPERTY_VALIDATION_MESSAGE + "=Please enter a valid email address."
+      PROPERTY_VALIDATION_MESSAGE + "=Please enter a valid email address.",
+      PROPERTY_MANDATORY + "=true"
   })
   String emailParam();
 
