@@ -19,7 +19,7 @@
  */
 package io.wcm.caconfig.sample.config;
 
-import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_MANDATORY;
+import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_REQUIRED;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_VALIDATION;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_VALIDATION_MESSAGE;
 
@@ -37,7 +37,7 @@ public @interface ValidationSample {
    */
   @Property(label = "String Param", description = "This is a mandatory string parameter in the singleton configuration.", order = 5,
       property = {
-          PROPERTY_MANDATORY + "=true"
+          PROPERTY_REQUIRED + "=true"
       })
   String stringParam();
 
@@ -47,7 +47,7 @@ public @interface ValidationSample {
   @Property(label = "E-Mail (sync)", description = "E-Mail synchronous validation.", order = 10, property = {
       PROPERTY_VALIDATION + "=email-sync-sample",
       PROPERTY_VALIDATION_MESSAGE + "=Please enter a valid email address.",
-      PROPERTY_MANDATORY + "=true"
+      PROPERTY_REQUIRED + "=true"
   })
   String emailParam();
 

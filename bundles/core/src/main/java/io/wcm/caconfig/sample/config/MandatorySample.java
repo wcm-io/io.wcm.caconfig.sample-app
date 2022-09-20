@@ -20,9 +20,9 @@
 package io.wcm.caconfig.sample.config;
 
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_DROPDOWN_OPTIONS;
-import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_MANDATORY;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_PATHBROWSER_ROOT_PATH;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_PATHBROWSER_ROOT_PATH_CONTEXT;
+import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_REQUIRED;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_TAGBROWSER_ROOT_PATH;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_WIDGET_TYPE;
 import static io.wcm.caconfig.editor.EditorProperties.WIDGET_TYPE_DROPDOWN;
@@ -44,7 +44,7 @@ public @interface MandatorySample {
    */
   @Property(label = "String Param", description = "This is a string parameter in the singleton configuration.", order = 10,
       property = {
-          PROPERTY_MANDATORY + "=true"
+          PROPERTY_REQUIRED + "=true"
       })
   String stringParam();
 
@@ -53,7 +53,7 @@ public @interface MandatorySample {
    */
   @Property(label = "Integer Param", order = 11,
       property = {
-          PROPERTY_MANDATORY + "=true"
+          PROPERTY_REQUIRED + "=true"
       })
   int intParam();
 
@@ -62,7 +62,7 @@ public @interface MandatorySample {
    */
   @Property(label = "Boolean Param", order = 12,
       property = {
-          PROPERTY_MANDATORY + "=true"
+          PROPERTY_REQUIRED + "=true"
       })
   boolean boolParam();
 
@@ -70,7 +70,7 @@ public @interface MandatorySample {
    * @return Path parameter
    */
   @Property(label = "DAM Path", description = "Browse DAM assets.", order = 20, property = {
-      PROPERTY_MANDATORY + "=true",
+      PROPERTY_REQUIRED + "=true",
       PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_PATHBROWSER,
       PROPERTY_PATHBROWSER_ROOT_PATH + "=/content/dam"
   })
@@ -81,7 +81,7 @@ public @interface MandatorySample {
    */
   @Property(label = "Context Path", description = "Browse pages in the current configuration context path.", order = 30,
       property = {
-          PROPERTY_MANDATORY + "=true",
+          PROPERTY_REQUIRED + "=true",
           PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_PATHBROWSER,
           PROPERTY_PATHBROWSER_ROOT_PATH_CONTEXT + "=true"
       })
@@ -92,7 +92,7 @@ public @interface MandatorySample {
    */
   @Property(label = "Tags", description = "Picks tags.", order = 40,
       property = {
-          PROPERTY_MANDATORY + "=true",
+          PROPERTY_REQUIRED + "=true",
           PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_TAGBROWSER,
           PROPERTY_TAGBROWSER_ROOT_PATH + "=/content/cq:tags/contextaware-config-sample"
       })
@@ -103,7 +103,7 @@ public @interface MandatorySample {
    */
   @Property(label = "String Array Param", order = 50,
       property = {
-          PROPERTY_MANDATORY + "=true"
+          PROPERTY_REQUIRED + "=true"
       })
   String[] stringArrayParam() default {
       "value1", "value2"
@@ -114,7 +114,7 @@ public @interface MandatorySample {
    */
   @Property(label = "Integer Array Param", order = 51,
       property = {
-          PROPERTY_MANDATORY + "=true"
+          PROPERTY_REQUIRED + "=true"
       })
   int[] intArrayParam() default {
       1, 2
@@ -125,7 +125,7 @@ public @interface MandatorySample {
    */
   @Property(label = "Boolean Array Param", order = 52,
       property = {
-          PROPERTY_MANDATORY + "=true"
+          PROPERTY_REQUIRED + "=true"
       })
   boolean[] boolArrayParam() default {
       true, false
@@ -136,7 +136,7 @@ public @interface MandatorySample {
    */
   @Property(label = "String Dropdown Param", description = "This is a string parameter with dropdown list.", order = 60,
       property = {
-          PROPERTY_MANDATORY + "=true",
+          PROPERTY_REQUIRED + "=true",
           PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_DROPDOWN,
           PROPERTY_DROPDOWN_OPTIONS + "=["
               + "{'value':'option1','description':'First option'},"
@@ -151,7 +151,7 @@ public @interface MandatorySample {
    */
   @Property(label = "Integer Dropdown Param", order = 70,
       property = {
-          PROPERTY_MANDATORY + "=true",
+          PROPERTY_REQUIRED + "=true",
           PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_DROPDOWN,
           PROPERTY_DROPDOWN_OPTIONS + "=["
               + "{'value':1,'description':'Number One'},"
@@ -165,7 +165,7 @@ public @interface MandatorySample {
    */
   @Property(label = "String Multivalue Dropdown Param", description = "This is a multi-valued string parameter with dropdown list.", order = 80,
       property = {
-          PROPERTY_MANDATORY + "=true",
+          PROPERTY_REQUIRED + "=true",
           PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_DROPDOWN,
           PROPERTY_DROPDOWN_OPTIONS + "=["
               + "{'value':'option1','description':'Option #1'},"
@@ -182,7 +182,7 @@ public @interface MandatorySample {
    */
   @Property(label = "String Text Area", description = "Enter multiple lines of text.", order = 100,
       property = {
-          PROPERTY_MANDATORY + "=true",
+          PROPERTY_REQUIRED + "=true",
           PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_TEXTAREA
       })
   String stringTextArea();
