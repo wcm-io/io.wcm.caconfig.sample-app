@@ -36,8 +36,8 @@ import org.apache.sling.caconfig.annotation.Property;
 /**
  * Sample configuration with mandatory properties.
  */
-@Configuration(label = "Sample Configuration with mandatory properties", description = "This is a sample configuration.")
-public @interface MandatorySample {
+@Configuration(label = "Sample Configuration with Required Properties", description = "This is a sample configuration.")
+public @interface RequiredFieldsSample {
 
   /**
    * @return String parameter
@@ -97,6 +97,17 @@ public @interface MandatorySample {
           PROPERTY_TAGBROWSER_ROOT_PATH + "=/content/cq:tags/contextaware-config-sample"
       })
   String[] tags();
+
+  /**
+   * @return Single Tag
+   */
+  @Property(label = "Single Tag", description = "Picks a tag.", order = 41,
+      property = {
+          PROPERTY_REQUIRED + "=true",
+          PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_TAGBROWSER,
+          PROPERTY_TAGBROWSER_ROOT_PATH + "=/content/cq:tags/contextaware-config-sample"
+      })
+  String singleTag();
 
   /**
    * @return String array parameter with default value
