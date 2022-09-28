@@ -19,6 +19,7 @@
  */
 package io.wcm.caconfig.sample.config;
 
+import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_REQUIRED;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_VALIDATION;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_VALIDATION_MESSAGE;
 
@@ -32,11 +33,21 @@ import org.apache.sling.caconfig.annotation.Property;
 public @interface ValidationSample {
 
   /**
+   * @return String parameter
+   */
+  @Property(label = "String Param", description = "This is a mandatory string parameter in the singleton configuration.", order = 5,
+      property = {
+          PROPERTY_REQUIRED + "=true"
+      })
+  String stringParam();
+
+  /**
    * @return E-Mail synchronous validation
    */
   @Property(label = "E-Mail (sync)", description = "E-Mail synchronous validation.", order = 10, property = {
       PROPERTY_VALIDATION + "=email-sync-sample",
-      PROPERTY_VALIDATION_MESSAGE + "=Please enter a valid email address."
+      PROPERTY_VALIDATION_MESSAGE + "=Please enter a valid email address.",
+      PROPERTY_REQUIRED + "=true"
   })
   String emailParam();
 
