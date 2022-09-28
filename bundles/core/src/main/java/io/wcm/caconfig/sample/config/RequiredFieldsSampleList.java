@@ -27,7 +27,7 @@ import org.apache.sling.caconfig.annotation.Property;
 /**
  * Config annotation class example
  */
-@Configuration(label = "Sample Configuration List with required fields", description = "This is a sample configuration list.", collection = true)
+@Configuration(label = "Sample Configuration List with Required Properties", description = "This is a sample configuration list.", collection = true)
 public @interface RequiredFieldsSampleList {
 
   /**
