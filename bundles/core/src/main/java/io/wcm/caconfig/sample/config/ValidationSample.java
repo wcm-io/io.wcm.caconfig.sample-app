@@ -22,6 +22,8 @@ package io.wcm.caconfig.sample.config;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_REQUIRED;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_VALIDATION;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_VALIDATION_MESSAGE;
+import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_WIDGET_TYPE;
+import static io.wcm.caconfig.editor.EditorProperties.WIDGET_TYPE_TEXTAREA;
 
 import org.apache.sling.caconfig.annotation.Configuration;
 import org.apache.sling.caconfig.annotation.Property;
@@ -106,5 +108,15 @@ public @interface ValidationSample {
       PROPERTY_VALIDATION_MESSAGE + "=Please enter a number between 0 and 10."
   })
   int[] numberArray();
+
+  /**
+   * @return Path parameter
+   */
+  @Property(label = "String Text Area", description = "Enter multiple lines of text.", order = 100,
+      property = {
+          PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_TEXTAREA,
+          PROPERTY_VALIDATION + "=email-sync-sample"
+      })
+  String stringTextArea();
 
 }
