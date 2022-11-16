@@ -24,6 +24,7 @@ import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_DROPDOWN_OPTIONS_
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_PATHBROWSER_ROOT_PATH;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_PATHBROWSER_ROOT_PATH_CONTEXT;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_TAGBROWSER_ROOT_PATH;
+import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_TEXTAREA_ROWS;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_WIDGET_TYPE;
 import static io.wcm.caconfig.editor.EditorProperties.WIDGET_TYPE_DROPDOWN;
 import static io.wcm.caconfig.editor.EditorProperties.WIDGET_TYPE_PATHBROWSER;
@@ -180,7 +181,8 @@ public @interface ConfigSample {
    */
   @Property(label = "String Text Area", description = "Enter multiple lines of text.", order = 100,
       property = {
-          PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_TEXTAREA
+          PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_TEXTAREA,
+          PROPERTY_TEXTAREA_ROWS + "=" + 5
       })
   String stringTextArea();
 
