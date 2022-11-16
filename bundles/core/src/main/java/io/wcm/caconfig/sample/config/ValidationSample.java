@@ -115,7 +115,8 @@ public @interface ValidationSample {
   @Property(label = "String Text Area", description = "Enter multiple lines of text.", order = 100,
       property = {
           PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_TEXTAREA,
-          PROPERTY_VALIDATION + "=email-sync-sample"
+          PROPERTY_VALIDATION + "=email-sync-sample",
+          PROPERTY_VALIDATION_MESSAGE + "=Please enter a valid email address."
       })
   String stringTextArea();
 
