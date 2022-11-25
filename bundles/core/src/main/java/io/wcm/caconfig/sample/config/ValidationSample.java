@@ -19,6 +19,7 @@
  */
 package io.wcm.caconfig.sample.config;
 
+import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_CATEGORY;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_REQUIRED;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_VALIDATION;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_VALIDATION_MESSAGE;
@@ -31,7 +32,11 @@ import org.apache.sling.caconfig.annotation.Property;
 /**
  * Sample configuration with custom validations.
  */
-@Configuration(label = "Sample Configuration with Validation", description = "Sample configuration with custom validations.")
+@Configuration(label = "Sample Configuration with Validation",
+    description = "Sample configuration with custom validations.",
+    property = {
+        PROPERTY_CATEGORY + "=validation"
+    })
 public @interface ValidationSample {
 
   /**
