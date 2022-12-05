@@ -19,6 +19,7 @@
  */
 package io.wcm.caconfig.sample.config;
 
+import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_CATEGORY;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_REQUIRED;
 
 import org.apache.sling.caconfig.annotation.Configuration;
@@ -27,7 +28,11 @@ import org.apache.sling.caconfig.annotation.Property;
 /**
  * Config annotation class example
  */
-@Configuration(label = "Sample Configuration List with Required Properties", description = "This is a sample configuration list.", collection = true)
+@Configuration(label = "Sample Configuration List with Required Properties",
+    description = "This is a sample configuration list.", collection = true,
+    property = {
+        PROPERTY_CATEGORY + "=validation"
+    })
 public @interface RequiredFieldsSampleList {
 
   /**

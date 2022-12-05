@@ -19,6 +19,7 @@
  */
 package io.wcm.caconfig.sample.config;
 
+import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_CATEGORY;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_DROPDOWN_OPTIONS;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_PATHBROWSER_ROOT_PATH;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_PATHBROWSER_ROOT_PATH_CONTEXT;
@@ -36,7 +37,11 @@ import org.apache.sling.caconfig.annotation.Property;
 /**
  * Sample configuration with mandatory properties.
  */
-@Configuration(label = "Sample Configuration with Required Properties", description = "This is a sample configuration.")
+@Configuration(label = "Sample Configuration with Required Properties",
+    description = "This is a sample configuration.",
+    property = {
+        PROPERTY_CATEGORY + "=validation"
+    })
 public @interface RequiredFieldsSample {
 
   /**

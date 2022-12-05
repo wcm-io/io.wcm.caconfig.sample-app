@@ -53,6 +53,12 @@
       <artifactId>io.wcm.caconfig.editor</artifactId>
       <scope>compile</scope>
     </dependency>
+    <dependency>
+      <groupId>io.wcm</groupId>
+      <artifactId>io.wcm.sling.commons</artifactId>
+      <scope>compile</scope>
+      <optional>true</optional>
+    </dependency>
 
     <dependency>
       <groupId>com.adobe.aem</groupId>
@@ -109,6 +115,11 @@
           <bnd>
             Sling-Initial-Content: \
               SLING-INF/app-root;overwrite:=true;ignoreImportProviders:=xml;path:=/apps/contextaware-config-sample
+
+            <!-- optional dependency -->
+            Import-Package: \
+              io.wcm.sling.commons.caservice;resolution:=optional,\
+              *
           </bnd>
         </configuration>
       </plugin>

@@ -19,13 +19,19 @@
  */
 package io.wcm.caconfig.sample.config;
 
+import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_CATEGORY;
+
 import org.apache.sling.caconfig.annotation.Configuration;
 import org.apache.sling.caconfig.annotation.Property;
 
 /**
  * Config annotation class example to test overrides.
  */
-@Configuration(label = "Override Sample Configuration", description = "This is a sample configuration for testing overrides.")
+@Configuration(label = "Override Sample Configuration",
+    description = "This is a sample configuration for testing overrides.",
+    property = {
+        PROPERTY_CATEGORY + "=override"
+    })
 public @interface ConfigOverrideSample {
 
   /**
