@@ -93,7 +93,7 @@
       <dependency>
         <groupId>io.wcm</groupId>
         <artifactId>io.wcm.caconfig.extensions</artifactId>
-        <version>1.9.1-SNAPSHOT</version>
+        <version>1.9.3-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>io.wcm</groupId>
@@ -103,7 +103,7 @@
       <dependency>
         <groupId>io.wcm</groupId>
         <artifactId>io.wcm.sling.commons</artifactId>
-        <version>1.6.0</version>
+        <version>1.6.2</version>
       </dependency>
   
       <!-- Sling Context-Aware Config -->
