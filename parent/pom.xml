@@ -39,6 +39,16 @@
     <!-- Java version -->
     <java.version>11</java.version>
 
+    <!-- AEM instance parameters -->
+    <sling.url>http://localhost:4502</sling.url>
+    <sling.publish.url>http://localhost:4503</sling.publish.url>
+
+    <!-- Set to 'enabled' to activate org.eclipse.jdt.core.compiler.annotation.nullanalysis feature in eclipse settings -->
+    <eclipse.settings.nullanalysis>enabled</eclipse.settings.nullanalysis>
+
+    <!-- Enable reproducible builds -->
+    <project.build.outputTimestamp>2024-07-01T00:00:00Z</project.build.outputTimestamp>
+
   </properties>
 
   <dependencies>
@@ -229,5 +239,83 @@
       </plugins>
     </pluginManagement>
   </build>
+
+  <profiles>
+
+    <!-- Deployment to AEM 6.5 -->
+    <profile>
+      <id>aem65</id>
+      <properties>
+        <!-- AEM instance parameters -->
+        <sling.url>http://localhost:45025</sling.url>
+        <sling.publish.url>http://localhost:45035</sling.publish.url>
+      </properties>
+    </profile>
+
+    <!-- Profile gets active when building in Cloud Manager -->
+    <profile>
+      <id>cmBuild</id>
+      <activation>
+        <property>
+          <name>env.CM_BUILD</name>
+        </property>
+      </activation>
+
+      <!-- Define snapshot repositories for Cloud Manager environment -->
+      <repositories>
+        <repository>
+          <id>oss-snapshots</id>
+          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+          <layout>default</layout>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+          </snapshots>
+        </repository>
+        <repository>
+          <id>apache-snapshots</id>
+          <url>https://repository.apache.org/snapshots</url>
+          <layout>default</layout>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>oss-snapshots</id>
+          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+          <layout>default</layout>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+          </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <id>apache-snapshots</id>
+          <url>https://repository.apache.org/snapshots</url>
+          <layout>default</layout>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+
+  </profiles>
 
 </project>

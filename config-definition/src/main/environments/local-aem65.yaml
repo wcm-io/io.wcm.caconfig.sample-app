@@ -1,0 +1,44 @@
+# AEM configuration for local development environment
+
+nodes:
+
+- node: aem-author
+  roles:
+  - role: sample-aem-cms
+    variant: aem-author
+  config:
+    replication.author.publishTargets:
+    - name: publish
+      url: ${maven::sling.publish.url}
+      transportUser: admin
+      transportPassword: admin
+
+- node: aem-publish
+  roles:
+  - role: sample-aem-cms
+    variant: aem-publish
+
+
+config:
+  contentPackage.group: wcm-io-samples
+
+  aem:
+    # Disable user tracking in author environment
+    disableAuthorUsageStatisticsCollection: true
+
+  app:
+    # Default log level for application code
+    logLevel: info
+    logLevelCaConfig: trace
+    # Whether to use AEM Page persistence strategy
+    caconfigAemPagePersistence: true
+    # AEM 6.5 deployment
+    aem65: true
+
+  quickstart:
+    # Enable Apache Sling DavEx Servlet to be able to use CRXDE Lite
+    enableDavEx: true
+
+  # Not used for AEM cloud
+  cloudManager.target:
+  - none

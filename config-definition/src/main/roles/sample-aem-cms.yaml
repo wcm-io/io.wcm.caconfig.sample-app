@@ -7,21 +7,15 @@ inherits:
 variants:
 - variant: aem-author
 - variant: aem-publish
-- variant: default-persistence-strategy
-  config:
-    app.caconfigAemPagePersistence: false
-- variant: aempage-persistence-strategy
-  config:
-    app.caconfigAemPagePersistence: true
 
 templateDir: sample-aem-cms
 
 files:
 
 # AEM OSGi System Configuration
-- file: sample-aem-cms-config.provisioning
+- file: sample-aem-cms-config.osgiconfig.json
   dir: packages
-  template: sample-aem-cms-config.provisioning.hbs
+  template: sample-aem-cms-config.osgiconfig.hbs
   postProcessors:
   - aem-contentpackage-osgiconfig
   postProcessorOptions:
@@ -31,22 +25,41 @@ files:
       filters:
       - filter: /apps/sample-aem-cms-config
 
-# Application package
-- url: mvn:io.wcm.samples/io.wcm.caconfig.sample-app.complete//zip
+# Apache Sling
+- url: mvn:org.apache.sling/org.apache.sling.caconfig.api
+  dir: bundles
+- url: mvn:org.apache.sling/org.apache.sling.caconfig.spi
+  dir: bundles
+- url: mvn:org.apache.sling/org.apache.sling.caconfig.impl
+  dir: bundles
+- url: mvn:org.apache.sling/org.apache.sling.models.caconfig
+  dir: bundles
+
+# wcm.io
+- url: mvn:io.wcm/io.wcm.caconfig.editor
+  dir: bundles
+- url: mvn:io.wcm/io.wcm.caconfig.extensions
+  dir: bundles
+- url: mvn:io.wcm/io.wcm.wcm.ui.granite
+  dir: bundles
+- url: mvn:io.wcm/io.wcm.sling.commons
+  dir: bundles
+
+# Application bundles
+- url: mvn:io.wcm.samples/io.wcm.caconfig.sample-app.core
   dir: packages
+
+# Application conf content package
 - url: mvn:io.wcm.samples/io.wcm.caconfig.sample-app.conf-content//zip
   dir: packages
 
 # Application sample content package
 - url: mvn:io.wcm.samples/io.wcm.caconfig.sample-app.sample-content-default//zip
   dir: packages
-  variants:
-  - default-persistence-strategy 
-
+  condition: ${!app.caconfigAemPagePersistence}
 - url: mvn:io.wcm.samples/io.wcm.caconfig.sample-app.sample-content-aempage//zip
   dir: packages
-  variants:
-  - aempage-persistence-strategy
+  condition: ${app.caconfigAemPagePersistence}
 
 
 # Defines configuration parameters and default values
@@ -56,12 +69,4 @@ config:
     version: ${version}
 
   app:
-    sampleContent: false
-
-
-  # Example for config override configuration
-  #configOverrides:
-  #  "/path/to/config/scope":
-  #    siteUrl:
-  #    siteUrlSecure:
-  #    siteUrlAuthor:
+    caconfigAemPagePersistence: false
