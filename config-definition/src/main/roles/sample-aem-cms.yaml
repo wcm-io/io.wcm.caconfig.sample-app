@@ -28,13 +28,13 @@ files:
 # Apache Sling
 - url: mvn:org.apache.sling/org.apache.sling.caconfig.api
   dir: bundles
-  condition: ${app.slingModelsLatest}
+  condition: ${app.slingCaconfigLatest}
 - url: mvn:org.apache.sling/org.apache.sling.caconfig.spi
   dir: bundles
-  condition: ${app.slingModelsLatest}
+  condition: ${app.slingCaconfigLatest}
 - url: mvn:org.apache.sling/org.apache.sling.caconfig.impl
   dir: bundles
-  condition: ${app.slingModelsLatest}
+  condition: ${app.slingCaconfigLatest}
 - url: mvn:org.apache.sling/org.apache.sling.models.caconfig
   dir: bundles
   condition: ${app.slingModelsCaconfig}
@@ -76,6 +76,6 @@ config:
     # Whether to use AEM Page persistence strategy
     caconfigAemPagePersistence: true
     # Whether to deploy latest Sling Models API/SPI/Models bundles
-    slingModelsLatest: true
+    slingCaconfigLatest: true
     # Whether to deploy bundle org.apache.sling.models.caconfig (not part of AEM out-of-the-box)
     slingModelsCaconfig: true
