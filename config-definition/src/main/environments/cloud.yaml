@@ -30,6 +30,8 @@ config:
     logLevelCaConfig: trace
     # Whether to use AEM Page persistence strategy
     caconfigAemPagePersistence: true
+    # Whether to deploy bundle org.apache.sling.models.caconfig (not part of AEM out-of-the-box)
+    slingModelsCaconfig: false
 
   httpd:
     headers:

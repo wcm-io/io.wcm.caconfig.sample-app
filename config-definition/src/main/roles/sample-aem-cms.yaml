@@ -34,6 +34,7 @@ files:
   dir: bundles
 - url: mvn:org.apache.sling/org.apache.sling.models.caconfig
   dir: bundles
+  condition: ${app.slingModelsCaconfig}
 
 # wcm.io
 - url: mvn:io.wcm/io.wcm.caconfig.editor
@@ -69,4 +70,7 @@ config:
     version: ${version}
 
   app:
+    # Whether to use AEM Page persistence strategy
     caconfigAemPagePersistence: false
+    # Whether to deploy bundle org.apache.sling.models.caconfig (not part of AEM out-of-the-box)
+    slingModelsCaconfig: true
