@@ -119,6 +119,7 @@
             <!-- optional dependency -->
             Import-Package: \
               io.wcm.sling.commons.caservice;resolution:=optional,\
+              org.apache.sling.models.caconfig.annotations;resolution:=optional,\
               *
           </bnd>
         </configuration>
