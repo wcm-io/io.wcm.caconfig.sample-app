@@ -74,7 +74,7 @@ config:
 
   app:
     # Whether to use AEM Page persistence strategy
-    caconfigAemPagePersistence: false
+    caconfigAemPagePersistence: true
     # Whether to deploy latest Sling Models API/SPI/Models bundles
     slingModelsLatest: true
     # Whether to deploy bundle org.apache.sling.models.caconfig (not part of AEM out-of-the-box)
