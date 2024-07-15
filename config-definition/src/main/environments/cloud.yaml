@@ -1,0 +1,62 @@
+# AEM configuration for AEM Cloud Service (DEV/STAGE/PROD)
+
+nodes:
+
+- node: aem-author
+  roles:
+  - role: sample-aem-cms
+    variant: aem-author
+
+- node: aem-publish
+  roles:
+  - role: sample-aem-cms
+    variant: aem-publish
+
+- node: aem-dispatcher
+  roles:
+  - role: aem-dispatcher-cloud
+    variant: aem-publish
+
+config:
+  contentPackage.group: wcm-io-samples
+
+  aem:
+    # Disable user tracking in author environment
+    disableAuthorUsageStatisticsCollection: false
+
+  app:
+    # Default log level for application code
+    logLevel: info
+    logLevelCaConfig: trace
+    # Whether to use AEM Page persistence strategy
+    caconfigAemPagePersistence: true
+    # Whether to deploy latest Sling Models API/SPI/Models bundles
+    slingCaconfigLatest: false
+    # Whether to deploy bundle org.apache.sling.models.caconfig (not part of AEM out-of-the-box)
+    slingModelsCaconfig: true
+
+  httpd:
+    headers:
+      # Set default expiration time for text/html responses (also affects dispatcher caching/invalidation)
+      htmlExpirationTimeSec: 5
+
+  # Replication configuration not required for AEM cloud service
+  replication:
+    author.generatePackage: false
+    publish.generatePackage: false
+
+
+tenants:
+- tenant: wcm-io-samples
+  config:
+    httpd:
+      # Simplified server name setup that can be deployed to any host name using "*" as server alias
+      serverName: publish
+      serverAliasNames:
+      - "*"
+      # Alternative: Use this setup to configure individual hostnames for dev/stage/prod in the cloud
+      #cloudManagerConditional:
+      #  dev.serverName: publish-XXX.adobeaemcloud.com
+      #  stage.serverName: publish-XXX.adobeaemcloud.com
+      #  prod.serverName: publish-XXX.adobeaemcloud.com
+      rootRedirect.url: /content/contextaware-config-sample/en.html

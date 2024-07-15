@@ -66,6 +66,10 @@ class ConfigSampleNestedModelTest {
     ConfigSampleNestedModel model = context.request().adaptTo(ConfigSampleNestedModel.class);
     assertNotNull(model);
     assertEquals("value1", model.getConfig().stringParam());
+
+    assertNotNull(model.getSub());
+    assertNotNull(model.getSub2());
+    assertNotNull(model.getSub2List());
   }
 
   @Test
