@@ -2,21 +2,26 @@
 =============================================
 [![Build](https://github.com/wcm-io/io.wcm.caconfig.editor/workflows/Build/badge.svg?branch=develop)](https://github.com/wcm-io/io.wcm.caconfig.editor/actions?query=workflow%3ABuild+branch%3Adevelop)
 
+This sample projects contains all wcm.io Context-Aware Configuration related modules with a bunch of sample code and sample content.
 
 Deploy sample project
 ---------------------
 
 You can use this scripts for a full deployment (application, sample content, configuration) into local AEM 6.5 or AEMaaCS instances.
 
-Using the **AEM Page Persistence Strategy** from wcm.io Context-Aware Configuration Extensions:
+By default, the **AEM Page Persistence Strategy** is used.
+
+Deploy to local AEMaaCS SDK instance:
 
 * `build-deploy.sh` -> deploy to author on port 4502
 * `build-deploy-publish.sh` -> deploy to publish on port 4503
 
-Using the **default Persistence Strategy** from Sling Context-Aware Configuration:
+Deploy to local AEM 6.5 instance:
 
-* `build-deploy-defaultpersistence.sh` -> deploy to author on port 4502
-* `build-deploy-defaultpersistence-publish.sh` -> deploy to publish on port 4503
+* `build-deploy_aem65.sh` -> deploy to author on port 45025
+* `build-deploy-publish_aem65.sh` -> deploy to publish on port 45035
+
+The deployment to AEM 6.5 also updates the Apache Sling Context-Aware Configuration modules to the latest versions - because of this the first deployment run may take some time to complete.
 
 
 Open Configuration Editor
@@ -39,5 +44,5 @@ You can look how the configuration is stored in the repository by browsing throu
 System requirements
 -------------------
 
-* AEM 6.5.7+ or AEMaaCS SDK
-* JDK 1.8 or Java 11
+* AEM 6.5.17+ or AEMaaCS SDK
+* Java 11
