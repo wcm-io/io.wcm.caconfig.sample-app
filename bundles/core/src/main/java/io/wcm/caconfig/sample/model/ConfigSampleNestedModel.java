@@ -36,18 +36,30 @@ public class ConfigSampleNestedModel {
   @ContextAwareConfiguration
   private ConfigSampleNested config;
 
+  /**
+   * @return Config
+   */
   public ConfigSampleNested getConfig() {
     return config;
   }
 
+  /**
+   * @return Sub config
+   */
   public ConfigSampleSub[] getSub() {
     return config.sub();
   }
 
+  /**
+   * @return Sub config 2
+   */
   public ConfigSampleSub2 getSub2() {
     return config.sub2();
   }
 
+  /**
+   * @return Sub config 2 list
+   */
   public ConfigSampleSub2[] getSub2List() {
     return config.sub2List();
   }

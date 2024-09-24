@@ -45,19 +45,19 @@ public @interface ConfigSample {
   /**
    * @return String parameter
    */
-  @Property(label = "String Param", description = "This is a string parameter in the singleton configuration.", order = 10)
+  @Property(label = "String", description = "This is a string parameter in the singleton configuration.", order = 10)
   String stringParam();
 
   /**
    * @return Integer parameter
    */
-  @Property(label = "Integer Param", order = 11)
+  @Property(label = "Integer", order = 11)
   int intParam();
 
   /**
    * @return Boolean parameter
    */
-  @Property(label = "Boolean Param", order = 12)
+  @Property(label = "Boolean", order = 12)
   boolean boolParam();
 
   /**
@@ -102,7 +102,7 @@ public @interface ConfigSample {
   /**
    * @return String array parameter with default value
    */
-  @Property(label = "String Array Param", order = 50)
+  @Property(label = "String Array", order = 50)
   String[] stringArrayParam() default {
       "value1", "value2"
   };
@@ -110,7 +110,7 @@ public @interface ConfigSample {
   /**
    * @return Integer array parameter with default value
    */
-  @Property(label = "Integer Array Param", order = 51)
+  @Property(label = "Integer Array", order = 51)
   int[] intArrayParam() default {
       1, 2
   };
@@ -118,7 +118,7 @@ public @interface ConfigSample {
   /**
    * @return Boolean array parameter with default value
    */
-  @Property(label = "Boolean Array Param", order = 52)
+  @Property(label = "Boolean Array", order = 52)
   boolean[] boolArrayParam() default {
       true, false
   };
@@ -126,7 +126,7 @@ public @interface ConfigSample {
   /**
    * @return String dropdown parameter
    */
-  @Property(label = "String Dropdown Param", description = "This is a string parameter with dropdown list.", order = 60,
+  @Property(label = "String Dropdown", description = "This is a string parameter with dropdown list.", order = 60,
       property = {
           PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_DROPDOWN,
           PROPERTY_DROPDOWN_OPTIONS + "=["
@@ -140,7 +140,7 @@ public @interface ConfigSample {
   /**
    * @return Integer dropdown parameter
    */
-  @Property(label = "Integer Dropdown Param", order = 70,
+  @Property(label = "Integer Dropdown", order = 70,
       property = {
           PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_DROPDOWN,
           PROPERTY_DROPDOWN_OPTIONS + "=["
@@ -153,7 +153,7 @@ public @interface ConfigSample {
   /**
    * @return String multivalue dropdown parameter
    */
-  @Property(label = "String Multivalue Dropdown Param", description = "This is a multi-valued string parameter with dropdown list.", order = 80,
+  @Property(label = "String Multivalue Dropdown", description = "This is a multi-valued string parameter with dropdown list.", order = 80,
       property = {
           PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_DROPDOWN,
           PROPERTY_DROPDOWN_OPTIONS + "=["
@@ -169,7 +169,7 @@ public @interface ConfigSample {
   /**
    * @return String dynamic dropdown parameter
    */
-  @Property(label = "String Dynamic Dropdown Param", description = "This is a string parameter with dynamic dropdown list.", order = 90,
+  @Property(label = "String Dynamic Dropdown", description = "This is a string parameter with dynamic dropdown list.", order = 90,
       property = {
           PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_DROPDOWN,
           PROPERTY_DROPDOWN_OPTIONS_PROVIDER + "=" + SampleDropdownOptionProvider.SAMPLE_DROPDWON_OPTIONS_PROVIDER
@@ -177,7 +177,7 @@ public @interface ConfigSample {
   String stringDropdownDynamicParam();
 
   /**
-   * @return Path parameter
+   * @return String Text Area
    */
   @Property(label = "String Text Area", description = "Enter multiple lines of text.", order = 100,
       property = {
@@ -185,5 +185,15 @@ public @interface ConfigSample {
           PROPERTY_TEXTAREA_ROWS + "=" + 5
       })
   String stringTextArea();
+
+  /**
+   * @return String Array Text Area
+   */
+  @Property(label = "String Array Text Area", description = "Enter multiple lines of text.", order = 101,
+      property = {
+          PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_TEXTAREA,
+          PROPERTY_TEXTAREA_ROWS + "=" + 2
+      })
+  String[] stringArrayTextArea();
 
 }
