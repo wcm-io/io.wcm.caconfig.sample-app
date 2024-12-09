@@ -29,6 +29,11 @@
     // Enable wcm.io CAConfig Extensions AEM Page Persistence
     "io.wcm.caconfig.extensions.persistence.impl.PagePersistenceStrategy": {
       "enabled": {{app.caconfigAemPagePersistence}}
+    },
+
+    // Enable checking for asset references in context-aware configurations
+    "io.wcm.caconfig.extensions.references.impl.ConfigurationReferenceProvider": {
+      "assetReferences": true
     }
 
   },
