@@ -103,7 +103,7 @@
       <dependency>
         <groupId>io.wcm</groupId>
         <artifactId>io.wcm.caconfig.extensions</artifactId>
-        <version>1.10.3-SNAPSHOT</version>
+        <version>1.10.4</version>
       </dependency>
       <dependency>
         <groupId>io.wcm</groupId>
