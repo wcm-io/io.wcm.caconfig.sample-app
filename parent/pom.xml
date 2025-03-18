@@ -131,7 +131,7 @@
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.caconfig.impl</artifactId>
         <!-- Stick with version 1.6.0 as 1.7.x depends on jakarta.json not available in AEM 6.x -->
-        <version>1.6.0</version>
+        <version>1.7.2</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
