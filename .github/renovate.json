@@ -10,6 +10,7 @@
     "io.wcm.samples:io.wcm.caconfig.sample-app.conf-content",
     "io.wcm.samples:io.wcm.caconfig.sample-app.sample-content-default",
     "io.wcm.samples:io.wcm.caconfig.sample-app.sample-content-aempage",
-    "io.wcm.maven:io.wcm.maven.aem-dependencies"
+    "io.wcm.maven:io.wcm.maven.aem-dependencies",
+    "io.wcm:org.apache.sling.caconfig.impl"
   ]
 }
