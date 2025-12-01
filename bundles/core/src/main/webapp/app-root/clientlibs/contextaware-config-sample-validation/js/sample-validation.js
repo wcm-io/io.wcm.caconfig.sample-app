@@ -27,7 +27,8 @@
 
   // Predefined patterns
   var pattern = {
-    email: /^[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}$/
+    email: /^[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}$/,
+    content_path_contextaware_config_sample: /^\/content\/contextaware-config-sample(\/.*)?$/
   };
 
   // sample validator that validates email synchronously
@@ -93,6 +94,27 @@
         return false;
       }
       return value >= 0 && value <= 10;
+    }
+  });
+
+  var getValue = function(el) {
+    if (el.value) {
+      return el.value;
+    }
+    else {
+      return $(el).val();
+    }
+  };
+
+  // predefined "path" pattern validator
+  registry.register('foundation.validation.validator', {
+    selector: '[data-foundation-validation~="content-path-contextaware-config-sample"]',
+    validate: function(el) {
+      var value = getValue(el);
+      var valid = value.length === 0 || pattern.content_path_contextaware_config_sample.test(value);
+      if (!valid) {
+        return Granite.I18n.get("Please enter a content path starting with /content/contextaware-config-sample.");
+      }
     }
   });
 

@@ -24,6 +24,7 @@ import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_REQUIRED;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_VALIDATION;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_VALIDATION_MESSAGE;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_WIDGET_TYPE;
+import static io.wcm.caconfig.editor.EditorProperties.WIDGET_TYPE_PATHBROWSER;
 import static io.wcm.caconfig.editor.EditorProperties.WIDGET_TYPE_TEXTAREA;
 
 import org.apache.sling.caconfig.annotation.Configuration;
@@ -124,5 +125,16 @@ public @interface ValidationSample {
           PROPERTY_VALIDATION_MESSAGE + "=Please enter a valid email address."
       })
   String stringTextArea();
+
+  /**
+   * @return Path parameter
+   */
+  @Property(label = "Content Path", description = "Browse a path, has to start with /content/contextaware-config-sample.", order = 110,
+      property = {
+          PROPERTY_WIDGET_TYPE + "=" + WIDGET_TYPE_PATHBROWSER,
+          PROPERTY_VALIDATION + "=content-path-contextaware-config-sample",
+          PROPERTY_VALIDATION_MESSAGE + "=Please enter a content path starting with /content/contextaware-config-sample."
+      })
+  String contextPath();
 
 }
