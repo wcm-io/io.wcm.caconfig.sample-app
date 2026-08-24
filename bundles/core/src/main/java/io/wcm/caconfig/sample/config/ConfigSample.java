@@ -21,6 +21,7 @@ package io.wcm.caconfig.sample.config;
 
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_DROPDOWN_OPTIONS;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_DROPDOWN_OPTIONS_PROVIDER;
+import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_ENCRYPT;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_PATHBROWSER_ROOT_PATH;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_PATHBROWSER_ROOT_PATH_CONTEXT;
 import static io.wcm.caconfig.editor.EditorProperties.PROPERTY_TAGBROWSER_ROOT_PATH;
@@ -59,6 +60,14 @@ public @interface ConfigSample {
    */
   @Property(label = "Boolean", order = 12)
   boolean boolParam();
+
+  /**
+   * @return String parameter
+   */
+  @Property(label = "Password", description = "This is a string parameter with encryption.", order = 13, property = {
+      PROPERTY_ENCRYPT + "=true"
+  })
+  String stringPasswordParam();
 
   /**
    * @return Path parameter
