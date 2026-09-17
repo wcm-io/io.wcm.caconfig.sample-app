@@ -64,7 +64,7 @@ public @interface ConfigSample {
   /**
    * @return String parameter
    */
-  @Property(label = "Password", description = "This is a string parameter with encryption.", order = 13, property = {
+  @Property(label = "Password", description = "This is a string parameter with encryption.", order = 13, encrypted = true, property = {
       PROPERTY_ENCRYPT + "=true"
   })
   String stringPasswordParam();
